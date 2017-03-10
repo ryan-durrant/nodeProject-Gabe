@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <input type="text" name="" value="">
+    <button class="submit-button" type="button" name="button">submit</button>
+    <script type="text/javascript"
+        src = "https://code.jquery.com/jquery-3.1.1.js"
+        integrity = "sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin = "anonymous" >
+    </script>
+    <script type="text/javascript">
+        let button = document.querySelector('.submit-button');
+        button.addEventListener('click', () => {
+            let term = document.querySelector('input').value;
+            $.get(`http://localhost:5000/api/search?term=${term}`)
+                .done(result => {
+                    document.write(result);
+                });
+        });
+    </script>
+</body>
+
+</html>
